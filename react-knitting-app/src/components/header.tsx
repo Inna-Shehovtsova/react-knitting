@@ -2,40 +2,38 @@ import { FC } from "react";
 import { Link, Outlet, NavLink } from "react-router-dom";
 
 export const Header: FC = () => {
-  return (
-    <div>
-      <ul>
-        <li>
+  return (<div>
+      <div>
+        
           <NavLink
-            to="/"
-            style={({ isActive, isPending }) =>
-              isActive ? { backgroundColor: "red", color: "green" } : {}
-            }
-          >
-            Главная
+            to="/" className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "active" : ""
+              }           
+          > Главная
           </NavLink>
-        </li>
-        <li>
+        </div>
+        <div>
           <NavLink
             to="/socks"
-            style={({ isActive, isPending }) =>
-              isActive ? { backgroundColor: "red", color: "green" } : {}
-            }
-          >Пример
+            className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "active" : ""
+              }
+          >Носок
           </NavLink>
-        </li>
-        <li>
+        </div>
+        <div>
           <NavLink
             to="/counter"
-            style={({ isActive, isPending }) =>
-              isActive ? { backgroundColor: "red" } : {}
-            }
+            className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "active" : ""
+              }
           >
             Простой счетчик
           </NavLink>
-        </li>
-      </ul>
+        </div>
+    
       <Outlet />
-    </div>
+   </div>
+  
   );
 };

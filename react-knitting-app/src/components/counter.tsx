@@ -27,7 +27,7 @@ export const Counter:FC=  ()=>{
              <div> <button className="decrement"onClick={() => dispatch(decrement())}
           data-testid="counterdecr">-</button></div>
            <div>
-             <input className="show"  value={counter} onChange={(event)=>dispatch(setValue(Number.parseInt(event.target.value)))}
+             <input className="show" type="number" size={4} maxLength={4} value={counter} onChange={(event)=>dispatch(setValue(Number.parseInt(event.target.value)))}
              data-testid="counterinput"></input>
              </div>
           <div> <button className="increment" onClick={() => dispatch(increment())}
