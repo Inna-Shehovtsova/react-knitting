@@ -14,7 +14,7 @@ function App() {
       </header>
      <SockInput />
       <SockCounter/>
-    <Counter name='simpleCounter'/>
+    <Counter />
   
     </div>
   );

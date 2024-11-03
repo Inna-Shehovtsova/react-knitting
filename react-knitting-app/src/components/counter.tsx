@@ -2,14 +2,14 @@
 import React, {FC, useState} from "react";
 
 import { useSelector, useDispatch } from "react-redux";
-import { increment, decrement, reset } from "../redux/counterSlice";
+import { increment, decrement, reset,setValue } from "../redux/counterSlice";
 
 type Props = {
   name:string;
 }
 
 
-export const Counter:FC<Props> =  (props:Props)=>{
+export const Counter:FC=  ()=>{
   const dispatch = useDispatch();
   const counter = useSelector((state:any) => state.counter.count);
  
@@ -27,8 +27,8 @@ export const Counter:FC<Props> =  (props:Props)=>{
              <div> <button className="decrement"onClick={() => dispatch(decrement())}
           data-testid="counterdecr">-</button></div>
            <div>
-             <p className="show"  
-             data-testid="counterinput">{counter}</p>
+             <input className="show"  value={counter} onChange={(event)=>dispatch(setValue(Number.parseInt(event.target.value)))}
+             data-testid="counterinput"></input>
              </div>
           <div> <button className="increment" onClick={() => dispatch(increment())}
           data-testid="counterincr">+</button></div>

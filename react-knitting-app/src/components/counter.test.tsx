@@ -4,7 +4,7 @@ import {Counter} from './counter';
 
 
 test('renders counter', async () => {
-  render(<Counter name='simpleCounter'/>);
+  render(<Counter />);
   console.log('test ', screen.debug());
   const buttonElement = screen.getByTestId('counterincr');
   expect(buttonElement).toBeInTheDocument();
