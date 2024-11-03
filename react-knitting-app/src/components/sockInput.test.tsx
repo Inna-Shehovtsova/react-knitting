@@ -4,7 +4,7 @@ import {SockInput,} from './sockInput';
 
 
 test('renders counter', () => {
-  render(<SockInput name=''/>);
+  render(<SockInput/>);
   screen.debug();
   console.log('test ', screen.debug());
   const buttonElement = screen.getByTestId('projname');

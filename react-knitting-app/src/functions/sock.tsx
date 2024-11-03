@@ -51,7 +51,7 @@ export class Sock{
         this.rowP2 = (this.aP1 - this.aP2 ) / 2 ;
         this.adopS1 =  Math.ceil(this.aP2 / 2);
         this.rowS1 = this.adopS1 * 2;
-        let sock_len = MIN_STEP+(this.size - MIN_SIZE) /10;
+        let sock_len =( MIN_STEP+(this.size - MIN_SIZE)) /10;
         this.rowS3 = Math.ceil((this.a - 8)/2);
         this.rowS2 = Math.ceil(sock_len*this.row ) - this.rowS1 - this.rowS3;
         this.description = new Array<TKnitRow>();
@@ -76,8 +76,9 @@ export class Sock{
         this.currentRow=-1;
     }
     getPreviosRow= ()=>{
-        if(this.currentRow > -1)
-            this.currentRow --;
+        if(this.currentRow > 0)
+            this.currentRow--;
+        else this.currentRow = 0;
         let ret  = this.description[this.currentRow];
         return ret;
     }

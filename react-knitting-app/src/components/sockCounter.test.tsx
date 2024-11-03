@@ -4,7 +4,7 @@ import {SockCounter,} from './sockCounter';
 
 
 test('renders counter', () => {
-  render(<SockCounter initCounter={0} row={10} stich={10} size={37}/>);
+  render(<SockCounter/>);
   screen.debug();
   console.log('test ', screen.debug());
   const buttonElement = screen.getByTestId('counterincr');
