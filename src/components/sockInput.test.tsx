@@ -1,12 +1,19 @@
 import React from "react";
-import { render, screen , } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { SockInput } from "./sockInput";
 import { Provider } from "react-redux";
-import store from "../redux/store"
+import store from "../redux/store";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 test("renders counter", () => {
-  render(<Provider store={store}><BrowserRouter>
-      <Routes><Route path="/" element={<SockInput />} /></Routes></BrowserRouter></Provider>);
+  render(
+    <Provider store={store}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<SockInput />} />
+        </Routes>
+      </BrowserRouter>
+    </Provider>,
+  );
   screen.debug();
   console.log("test ", screen.debug());
   const buttonElement = screen.getByTestId("projname");

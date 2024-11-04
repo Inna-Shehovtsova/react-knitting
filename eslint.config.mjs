@@ -10,11 +10,11 @@ import reactRecommended from "eslint-plugin-react/configs/recommended.js";
 export default [
   reactRecommended,
   {
-    files          : [ "**/*.{js,jsx,mjs,cjs,ts,tsx}" ],
+    files: ["**/*.{js,jsx,mjs,cjs,ts,tsx}"],
     languageOptions: {
-      ecmaVersion  : "latest",
-      sourceType   : "module",
-      parser       : typescriptParser,
+      ecmaVersion: "latest",
+      sourceType: "module",
+      parser: typescriptParser,
       parserOptions: {
         ecmaFeatures: {
           jsx: true,
@@ -29,7 +29,7 @@ export default [
     },
     rules: {
       //rules here
-    }
+    },
   },
   {
     files: ["webpack.config.js", "jest.config.js"],
