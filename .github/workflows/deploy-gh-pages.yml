@@ -16,7 +16,7 @@ jobs:
           npm install
       - name: Build
         run: |
-          webpack --mode production
+          npm run build
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
