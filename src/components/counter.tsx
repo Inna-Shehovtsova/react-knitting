@@ -3,10 +3,6 @@ import React, { FC, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { increment, decrement, reset, setValue } from "../redux/counterSlice";
 
-type Props = {
-  name: string;
-};
-
 export const Counter: FC = () => {
   const dispatch = useDispatch();
   const counter = useSelector((state: any) => state.counter.count);

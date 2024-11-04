@@ -14,26 +14,26 @@ const BundleAnalyzerPlugin =
 
 const isDev = process.env.NODE_ENV === "development";
 const withReport = process.env.npm_config_withReport;
-
+require('babel-register')
 module.exports = {
-  entry: {
-    main: path.resolve(__dirname, "./src/index.ts"),
-  },
+entry: ['@babel/polyfill', path.resolve(__dirname, "./src/index.tsx")],
   devtool:
     process.env.NODE_ENV === "production"
       ? "hidden-source-map"
       : "eval-source-map",
-  entry: path.resolve(__dirname, "./src/index.tsx"),
+ 
   mode: process.env.NODE_ENV === "production" ? "production" : "development",
-  path: path.resolve(__dirname, "./dist"),
-  filename: "[name].bundle.js",
+  output: {
+    path: path.resolve(__dirname, "./dist"),
+    filename: "[name].bundle.js",
+  },
 
   resolve: {
-    extensions: [".ts", ".js"],
+    extensions: [".ts", ".js", ".tsx", ".jsx"],
     alias: {
       components: path.resolve(__dirname, "src/components/"),
       src: path.resolve(__dirname, "src"),
-      store: path.resolve(__dirname, "src/store"),
+      store: path.resolve(__dirname, "src/redux/store"),
       svg: path.resolve(__dirname, "src/assets/svg"),
     },
   },
@@ -42,8 +42,10 @@ module.exports = {
     rules: [
       {
         exclude: /node_modules/,
-        test: /\.(?:js|mjs|cjs|ts)$/,
-        use: ["babel-loader"],
+        test: /\.(?:js|mjs|cjs|ts|tsx|jsx)$/,
+        use: {
+          loader: 'babel-loader',          
+        }
       },
       {
         exclude: /\.module\.s?css$/i,
@@ -117,6 +119,7 @@ module.exports = {
     port: 8000,
   },
   plugins: [
+   
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "./public/index.html"),
     }),
