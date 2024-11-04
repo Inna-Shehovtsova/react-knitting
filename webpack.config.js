@@ -102,6 +102,7 @@ module.exports = {
     },
     filename: "[name].bundle.[chunkhash].js",
     path: path.resolve(__dirname, "./build"),
+    publicPath: process.env.CI ? 'react-knitting' : '',
   },
   performance: {
     hints: false,
