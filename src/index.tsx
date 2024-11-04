@@ -17,7 +17,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <Provider store={store}>
-    <BrowserRouter>
+    <BrowserRouter basename="react-knitting">
       <Routes>
         <Route path="/" element={<Header />}>
           <Route index element={<SockInput />} />
