@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
 import { signIn, setLogin } from "../redux/loginSlice";
@@ -10,7 +10,6 @@ export const Login: FC = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch<typeof store.dispatch>();
   const login = useSelector((state: any) => state.login.name);
-  const isAutorized = useSelector((state: any) => state.login.isAuthorized);
 
   return (
     <form className="login">

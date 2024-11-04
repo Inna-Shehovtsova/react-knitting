@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -6,26 +6,23 @@ import {
   setRow,
   setStich,
   setModel,
-  getNextRow,
-  getPreviosRow,
   setName,
   setAll,
 } from "../redux/sockSlice";
 import { useNavigate, NavLink } from "react-router-dom";
-import store, { RootState } from "../redux/store";
+import { RootState } from "../redux/store";
 
 import { chekModel } from "../redux/modelsSlice";
 export const SockInput: FC = () => {
   const isAutorized = useSelector(
     (state: RootState) => state.login.isAuthorized,
   );
-  const username = useSelector((state: RootState) => state.login.name);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const counter = useSelector((state: RootState) => state.sockCounter.count);
+
   const row = useSelector((state: RootState) => state.sockCounter.row);
   const stich = useSelector((state: RootState) => state.sockCounter.stich);
-  const rowDesc = useSelector((state: RootState) => state.sockCounter.rowDesc);
   const size = useSelector((state: RootState) => state.sockCounter.size);
   const name = useSelector((state: RootState) => state.sockCounter.name);
   const models = useSelector((state: RootState) => state.model.models);

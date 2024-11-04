@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
 import { increment, decrement, reset, setValue } from "../redux/counterSlice";
