@@ -10,8 +10,20 @@ import reactRecommended from "eslint-plugin-react/configs/recommended.js";
 export default [
   reactRecommended,
   {
-    ignores: ["node_modules/","node_modules/*",".node_modules/",".node_modules/*",  ".public/*", ".scripts/*"],
+    ignores: ["node_modules/",
+      "node_modules/*",
+      ".node_modules/",
+      ".node_modules/*", 
+      ".public/*", 
+      ".scripts/*"],
     files: ["**/*.{js,jsx,mjs,cjs,ts,tsx}"],
+    rules: {
+      "no-unused-vars": "warn",
+      "@typescript-eslint/no-unused-vars": "warn",
+      "@typescript-eslint/no-unsafe-function-type": "warn",
+      "@typescript-eslint/no-explicit-any": "warn",
+      "@typescript-eslint/no-require-imports": "warn",
+    },
     languageOptions: {
       ecmaVersion: "latest",
       sourceType: "module",
@@ -28,9 +40,7 @@ export default [
     plugins: {
       "@typescript-eslint": typescriptEslint,
     },
-    rules: {
-      //rules here
-    },
+   
   },
   {
     files: ["webpack.config.js", "jest.config.js"],
