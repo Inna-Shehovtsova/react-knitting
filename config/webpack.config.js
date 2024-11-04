@@ -227,7 +227,6 @@ module.exports = function (webpackEnv) {
         : isEnvDevelopment &&
           ((info) =>
             path.resolve(info.absoluteResourcePath).replace(/\\/g, "/")),
-      publicPath: process.env.CI ? "/react-knitting/" : "",
     },
     cache: {
       type: "filesystem",

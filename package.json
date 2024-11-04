@@ -2,6 +2,7 @@
   "name": "react-knitting-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://inna-shehovtsova.github.io/react-knitting/",
   "dependencies": {
     "-": "^0.0.1",
     "@babel/core": "^7.16.0",
