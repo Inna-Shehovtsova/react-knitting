@@ -62,7 +62,7 @@ export const SockInput:FC =  ()=>{
             <div> <button className="createSock" onClick={(event) =>{ dispatch(setModel());
                 navigate("/socks");}
             }
-            data-testid="createSock">Создать модель</button></div>
+            data-testid="createSock">Перейти к работе</button></div>
            </form></div></main>
 
           )
@@ -98,7 +98,7 @@ export const SockInput:FC =  ()=>{
         <div> <button className="createSock" onClick={(event) =>{ dispatch(setModel());
             navigate("/socks");}
         }
-        data-testid="createSock">Создать модель</button></div>
+        data-testid="createSock">Перейти к работе</button></div>
        </form></div></main>
       )
 

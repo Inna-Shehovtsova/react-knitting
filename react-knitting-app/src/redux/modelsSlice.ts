@@ -14,6 +14,7 @@ export const fetchSockModels = createAsyncThunk(
 export  const updateSockModel = createAsyncThunk(
     'savedModels/updateModel',
     async (model: TSockSaveNamed, thunkAPI) => {
+        console.log(model);
       await updateModel(model);
      
     },

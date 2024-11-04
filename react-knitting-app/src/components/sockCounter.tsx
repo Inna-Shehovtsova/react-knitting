@@ -3,9 +3,10 @@ import React, {FC, useState} from "react";
 import store from "../redux/store"
 import { useSelector, useDispatch } from "react-redux";
 import { setSize, setRow,setStich,setModel,getNextRow,getPreviosRow } from "../redux/sockSlice";
-import {updateSockModel} from "../redux/modelsSlice"
+import {updateSockModel,fetchSockModels} from "../redux/modelsSlice"
 import {TSockSaveNamed} from "../functions/sock"
 import {RootState} from "../redux/store"
+import { getModelList } from "../functions/modelAPI";
 export const SockCounter:FC =  ()=>{
     const dispatch = useDispatch<typeof store.dispatch>();
     const counter = useSelector((state:RootState) => state.sockCounter.count);
@@ -44,7 +45,8 @@ export const SockCounter:FC =  ()=>{
                      size:size,
                       username:username,
                     progress:counter};
-         dispatch(updateSockModel(t))}}
+         dispatch(updateSockModel(t));
+        dispatch(fetchSockModels(t.username))}}
           data-testid="saveprogress">Сохранить успехи</button>
         </div>
        </form>
