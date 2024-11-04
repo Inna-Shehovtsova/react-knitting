@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Link, Outlet, NavLink } from "react-router-dom";
+import {  NavLink } from "react-router-dom";
 export const NotFound: FC = () => {
   return (
     <div>

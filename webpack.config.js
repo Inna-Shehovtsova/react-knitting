@@ -1,10 +1,10 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-//const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-//const CopyWebpackPlugin = require("copy-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
-
-//const BrowserSyncPlugin = require("browser-sync-webpack-plugin");
+const path = require("node:path");
+const BrowserSyncPlugin = require("browser-sync-webpack-plugin");
 const path = require("path");
 
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -14,26 +14,26 @@ const BundleAnalyzerPlugin =
 
 const isDev = process.env.NODE_ENV === "development";
 const withReport = process.env.npm_config_withReport;
-require('babel-register')
+
 module.exports = {
-entry: ['@babel/polyfill', path.resolve(__dirname, "./src/index.tsx")],
+  entry: {
+    main: path.resolve(__dirname, "./src/index.ts"),
+  },
   devtool:
     process.env.NODE_ENV === "production"
       ? "hidden-source-map"
       : "eval-source-map",
- 
+  entry: path.resolve(__dirname, "./src/index.tsx"),
   mode: process.env.NODE_ENV === "production" ? "production" : "development",
-  output: {
-    path: path.resolve(__dirname, "./dist"),
-    filename: "[name].bundle.js",
-  },
+  path: path.resolve(__dirname, "./dist"),
+  filename: "[name].bundle.js",
 
   resolve: {
-    extensions: [".ts", ".js", ".tsx", ".jsx"],
+    extensions: [".ts", ".js"],
     alias: {
       components: path.resolve(__dirname, "src/components/"),
       src: path.resolve(__dirname, "src"),
-      store: path.resolve(__dirname, "src/redux/store"),
+      store: path.resolve(__dirname, "src/store"),
       svg: path.resolve(__dirname, "src/assets/svg"),
     },
   },
@@ -42,10 +42,8 @@ entry: ['@babel/polyfill', path.resolve(__dirname, "./src/index.tsx")],
     rules: [
       {
         exclude: /node_modules/,
-        test: /\.(?:js|mjs|cjs|ts|tsx|jsx)$/,
-        use: {
-          loader: 'babel-loader',          
-        }
+        test: /\.(?:js|mjs|cjs|ts)$/,
+        use: ["babel-loader"],
       },
       {
         exclude: /\.module\.s?css$/i,
@@ -119,7 +117,6 @@ entry: ['@babel/polyfill', path.resolve(__dirname, "./src/index.tsx")],
     port: 8000,
   },
   plugins: [
-   
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "./public/index.html"),
     }),
