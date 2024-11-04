@@ -44,6 +44,7 @@ export const SockInput: FC = () => {
               ) : (
                 models.map((m, i) => (
                   <li
+                    key={i}
                     onClick={(event: React.MouseEvent<HTMLLIElement>) => {
                       dispatch(chekModel({ i }));
                       dispatch(setAll(m));

@@ -37,6 +37,7 @@ export default [
     },
     rules: {
       //rules here
+      "react/react-in-jsx-scope": "off"
     },
   },
   {
