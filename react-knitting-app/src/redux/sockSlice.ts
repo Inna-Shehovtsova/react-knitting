@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { Sock,TKnitRow } from '../functions/sock';
+import { Sock,TKnitRow, TSockSave } from '../functions/sock';
 
 
 export const sockSlice = createSlice({
@@ -24,7 +24,7 @@ export const sockSlice = createSlice({
             state.stich = action.payload;
         },
         setModel: (state) => {
-            state.model = new Sock(state.size, state.stich, state.row);
+            state.model = new Sock(state.size, state.stich, state.row, state.count);
         },
         getNextRow: (state) =>{
             state.rowDesc = state.model.getCurrentRow();
@@ -36,10 +36,17 @@ export const sockSlice = createSlice({
         },
         setName:(state, action)=>{
             state.name = action.payload;
+        },
+        setAll: (state, action)=>{
+            let t:TSockSave = action.payload;
+            state.count = t.progress;
+            state.row = t.row;
+            state.name = t.name;
+            state.size = t.size;
+            state.stich = t.stich;            
         }
-        
     },
 
 });
-export const { setSize, setRow,setStich,setModel,getNextRow,getPreviosRow, setName} = sockSlice.actions;
+export const { setSize, setRow,setStich,setModel,getNextRow,getPreviosRow, setName, setAll} = sockSlice.actions;
 export default sockSlice.reducer;

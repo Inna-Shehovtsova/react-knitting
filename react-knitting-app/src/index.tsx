@@ -12,6 +12,7 @@ import { SockInput } from "./components/sockInput";
 
 import { NotFound } from "./components/NotFound";
 import { Header } from './components/header';
+import { Login } from './components/login';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -24,6 +25,7 @@ root.render(
           <Route index element={<SockInput />} />
           <Route path="socks" element={<SockCounter />} />
           <Route path="counter" element={<Counter />} />
+          <Route path="login" element={<Login />} />
         </Route>
         
         <Route path="*" element={<NotFound />} />

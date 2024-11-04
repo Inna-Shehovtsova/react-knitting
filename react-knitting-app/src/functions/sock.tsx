@@ -1,6 +1,21 @@
 const MIN_STEP=16;
 const MIN_SIZE = 35;
 export type TKnitRow={row:string; desc:string}
+export type TSockSave={
+    row:number, 
+    stich:number,
+    size:number,
+    progress:number,
+    name:string
+}
+export type TSockSaveNamed={
+    username:string,
+    row:number, 
+    stich:number,
+    size:number,
+    progress:number,
+    name:string
+}
 export class Sock{
     
     size:number;
@@ -31,7 +46,7 @@ export class Sock{
         return left;
     }
   
-    constructor(size=37,  stich=10, row=10){
+    constructor(size=37,  stich=10, row=10, count=-1){
        
         this.size = this.inBounds(size, 35, 42);        
         this.row = this.inBounds(row, 10, 40);       
@@ -63,7 +78,7 @@ export class Sock{
         this.description = this.description.concat(this._stopa1());
         this.description = this.description.concat(this._stopa2());
         this.description = this.description.concat(this._stopa3());
-        this.currentRow = -1;
+        this.currentRow = count;
     }
     getCurrentRow = ()=>{
         this.currentRow ++;
