@@ -1,0 +1,31 @@
+name: Deploy to GithubPages
+
+on:
+  push:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+      - name: CD
+        run: |
+          cd react-knitting-app
+
+      - name: Install dependences
+        run: |
+          cd react-knitting-app
+          npm install
+          
+      - name: Build
+        run: |
+          cd react-knitting-app
+          npm run start
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
