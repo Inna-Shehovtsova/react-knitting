@@ -5,14 +5,14 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 const path = require("node:path");
 const BrowserSyncPlugin = require("browser-sync-webpack-plugin");
-const path = require('path');
+const path = require("path");
 
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const BundleAnalyzerPlugin =
-  require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+  require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
-const isDev = process.env.NODE_ENV === 'development';
+const isDev = process.env.NODE_ENV === "development";
 const withReport = process.env.npm_config_withReport;
 
 module.exports = {
@@ -20,21 +20,21 @@ module.exports = {
     main: path.resolve(__dirname, "./src/index.ts"),
   },
   devtool:
-    process.env.NODE_ENV === 'production'
-      ? 'hidden-source-map'
-      : 'eval-source-map',
-  entry: path.resolve(__dirname, './src/index.tsx'),
-  mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
-    path: path.resolve(__dirname, "./dist"),
-    filename: "[name].bundle.js",
-  
+    process.env.NODE_ENV === "production"
+      ? "hidden-source-map"
+      : "eval-source-map",
+  entry: path.resolve(__dirname, "./src/index.tsx"),
+  mode: process.env.NODE_ENV === "production" ? "production" : "development",
+  path: path.resolve(__dirname, "./dist"),
+  filename: "[name].bundle.js",
+
   resolve: {
     extensions: [".ts", ".js"],
     alias: {
-      components: path.resolve(__dirname, 'src/components/'),
-      src: path.resolve(__dirname, 'src'),
-      store: path.resolve(__dirname, 'src/store'),
-      svg: path.resolve(__dirname, 'src/assets/svg'),
+      components: path.resolve(__dirname, "src/components/"),
+      src: path.resolve(__dirname, "src"),
+      store: path.resolve(__dirname, "src/store"),
+      svg: path.resolve(__dirname, "src/assets/svg"),
     },
   },
 
@@ -42,48 +42,48 @@ module.exports = {
     rules: [
       {
         exclude: /node_modules/,
-        test:  /\.(?:js|mjs|cjs|ts)$/,
-        use: ['babel-loader'],
+        test: /\.(?:js|mjs|cjs|ts)$/,
+        use: ["babel-loader"],
       },
       {
         exclude: /\.module\.s?css$/i,
         test: /\.s?css$/i,
         use: [
-          isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
+          isDev ? "style-loader" : MiniCssExtractPlugin.loader,
           {
-            loader: 'css-loader',
+            loader: "css-loader",
             options: {
               modules: {
-                localIdentName: '[name]___[hash:base64:5]',
-                mode: 'icss',
+                localIdentName: "[name]___[hash:base64:5]",
+                mode: "icss",
               },
             },
           },
-          'sass-loader',
+          "sass-loader",
         ],
       },
       {
         test: /\.module\.s?css$/,
         use: [
-          isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
+          isDev ? "style-loader" : MiniCssExtractPlugin.loader,
           {
-            loader: 'css-loader',
+            loader: "css-loader",
             options: {
               modules: {
-                localIdentName: '[name]___[hash:base64:5]',
-                mode: 'local',
+                localIdentName: "[name]___[hash:base64:5]",
+                mode: "local",
               },
             },
           },
-          'sass-loader',
+          "sass-loader",
         ],
       },
       {
         generator: {
-          filename: 'static/[hash][ext]',
+          filename: "static/[hash][ext]",
         },
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: 'asset/resource',
+        type: "asset/resource",
       },
       // {
       //   loader: 'html-loader',
@@ -93,15 +93,15 @@ module.exports = {
   },
 
   optimization: {
-    minimizer: ['...', new CssMinimizerPlugin()],
+    minimizer: ["...", new CssMinimizerPlugin()],
   },
   output: {
     clean: true,
     environment: {
       arrowFunction: false,
     },
-    filename: '[name].bundle.[chunkhash].js',
-    path: path.resolve(__dirname, './build'),
+    filename: "[name].bundle.[chunkhash].js",
+    path: path.resolve(__dirname, "./build"),
   },
   performance: {
     hints: false,
@@ -110,7 +110,7 @@ module.exports = {
   },
   devServer: {
     client: {
-      logging: 'info',
+      logging: "info",
     },
     compress: true,
     historyApiFallback: true,
@@ -118,17 +118,16 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, './public/index.html'),
+      template: path.resolve(__dirname, "./public/index.html"),
     }),
     ...(isDev
       ? [new MiniCssExtractPlugin()]
       : [
           new MiniCssExtractPlugin({
-            chunkFilename: '[name].[contenthash].css',
-            filename: '[name].[contenthash].css',
+            chunkFilename: "[name].[contenthash].css",
+            filename: "[name].[contenthash].css",
           }),
         ]),
-    ...(withReport ? new BundleAnalyzerPlugin() : ''),
-   
+    ...(withReport ? new BundleAnalyzerPlugin() : ""),
   ],
 };
