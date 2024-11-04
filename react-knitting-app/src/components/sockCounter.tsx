@@ -1,19 +1,11 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 
 import store from "../redux/store";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  setSize,
-  setRow,
-  setStich,
-  setModel,
-  getNextRow,
-  getPreviosRow,
-} from "../redux/sockSlice";
+import { getNextRow, getPreviosRow } from "../redux/sockSlice";
 import { updateSockModel, fetchSockModels } from "../redux/modelsSlice";
 import { TSockSaveNamed } from "../functions/sock";
 import { RootState } from "../redux/store";
-import { getModelList } from "../functions/modelAPI";
 export const SockCounter: FC = () => {
   const dispatch = useDispatch<typeof store.dispatch>();
   const counter = useSelector((state: RootState) => state.sockCounter.count);

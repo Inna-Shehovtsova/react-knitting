@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { Link, Outlet, NavLink } from "react-router-dom";
-import { signIn, signOut } from "../redux/loginSlice";
+import { Outlet, NavLink } from "react-router-dom";
+import { signOut } from "../redux/loginSlice";
 import { useSelector, useDispatch } from "react-redux";
 
 export const Header: FC = () => {
