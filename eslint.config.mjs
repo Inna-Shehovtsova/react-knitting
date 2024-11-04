@@ -10,7 +10,14 @@ import reactRecommended from "eslint-plugin-react/configs/recommended.js";
 export default [
   reactRecommended,
   {
-    ignores: ["node_modules/","node_modules/*",".node_modules/",".node_modules/*",  ".public/*", ".scripts/*"],
+    ignores: [
+      "node_modules/",
+      "node_modules/*",
+      ".node_modules/",
+      ".node_modules/*",
+      ".public/*",
+      ".scripts/*",
+    ],
     files: ["**/*.{js,jsx,mjs,cjs,ts,tsx}"],
     languageOptions: {
       ecmaVersion: "latest",
