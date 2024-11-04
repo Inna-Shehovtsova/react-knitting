@@ -22,7 +22,7 @@ jobs:
       - name: Build
         run: |
           cd react-knitting-app
-          node scripts/build.js
+          npm run start
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
