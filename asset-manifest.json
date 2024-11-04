@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.css": "/static/css/main.4beb9e36.css",
-    "main.js": "/static/js/main.14b8367d.js",
-    "static/js/453.d93b07c7.chunk.js": "/static/js/453.d93b07c7.chunk.js",
-    "index.html": "/index.html",
-    "main.4beb9e36.css.map": "/static/css/main.4beb9e36.css.map",
-    "main.14b8367d.js.map": "/static/js/main.14b8367d.js.map",
-    "453.d93b07c7.chunk.js.map": "/static/js/453.d93b07c7.chunk.js.map"
+    "main.css": "/react-knitting/static/css/main.4beb9e36.css",
+    "main.js": "/react-knitting/static/js/main.14b8367d.js",
+    "static/js/453.d93b07c7.chunk.js": "/react-knitting/static/js/453.d93b07c7.chunk.js",
+    "index.html": "/react-knitting/index.html",
+    "main.4beb9e36.css.map": "/react-knitting/static/css/main.4beb9e36.css.map",
+    "main.14b8367d.js.map": "/react-knitting/static/js/main.14b8367d.js.map",
+    "453.d93b07c7.chunk.js.map": "/react-knitting/static/js/453.d93b07c7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4beb9e36.css",
