@@ -1,0 +1,58 @@
+diff --git a/react-knitting-app/src/components/NotFound.tsx b/react-knitting-app/src/components/NotFound.tsx
+index 6737799..3f8731c 100644
+--- a/react-knitting-app/src/components/NotFound.tsx
++++ b/react-knitting-app/src/components/NotFound.tsx
+@@ -1,5 +1,5 @@
+ import { FC } from "react";
+-import { Link, Outlet, NavLink } from "react-router-dom";
++import { NavLink } from "react-router-dom";
+ export const NotFound: FC = () => {
+   return (
+     <div>
+diff --git a/react-knitting-app/src/index.css b/react-knitting-app/src/index.css
+index 475170b..007d085 100644
+--- a/react-knitting-app/src/index.css
++++ b/react-knitting-app/src/index.css
+@@ -102,7 +102,7 @@ button:focus-visible {
+   width: 70px;
+   height: 70px;
+   font-size: large;
+-  font-size-adjust: calc();
++  /* font-size-adjust: calc(); */
+   text-align: center;
+ }
+ .increment {
+diff --git a/react-knitting-app/src/index.tsx b/react-knitting-app/src/index.tsx
+index 8150417..ce884bb 100644
+--- a/react-knitting-app/src/index.tsx
++++ b/react-knitting-app/src/index.tsx
+@@ -1,7 +1,5 @@
+-import React from "react";
+ import ReactDOM from "react-dom/client";
+ import "./index.css";
+-import App from "./App";
+ import reportWebVitals from "./reportWebVitals";
+ import { Provider } from "react-redux";
+ import store from "./redux/store";
+diff --git a/react-knitting-app/src/redux/modelsSlice.ts b/react-knitting-app/src/redux/modelsSlice.ts
+index 4da7787..673864a 100644
+--- a/react-knitting-app/src/redux/modelsSlice.ts
++++ b/react-knitting-app/src/redux/modelsSlice.ts
+@@ -1,5 +1,5 @@
+ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+-import { Sock, TKnitRow, TSockSave, TSockSaveNamed } from "../functions/sock";
++import { TSockSave, TSockSaveNamed } from "../functions/sock";
+ import { getModelList, updateModel } from "../functions/modelAPI";
+ // First, create the thunk
+ export const fetchSockModels = createAsyncThunk(
+diff --git a/react-knitting-app/src/redux/sockSlice.ts b/react-knitting-app/src/redux/sockSlice.ts
+index 49b1ea9..eed0d48 100644
+--- a/react-knitting-app/src/redux/sockSlice.ts
++++ b/react-knitting-app/src/redux/sockSlice.ts
+@@ -1,5 +1,5 @@
+ import { createSlice } from "@reduxjs/toolkit";
+-import { Sock, TKnitRow, TSockSave } from "../functions/sock";
++import { Sock, TSockSave } from "../functions/sock";
+ 
+ export const sockSlice = createSlice({
+   name: "sockCounter",
