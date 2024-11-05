@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/react-knitting/static/css/main.4beb9e36.css",
+    "main.css": "/react-knitting/static/css/main.8cd37051.css",
     "main.js": "/react-knitting/static/js/main.72fcfcb8.js",
     "static/js/453.d93b07c7.chunk.js": "/react-knitting/static/js/453.d93b07c7.chunk.js",
     "index.html": "/react-knitting/index.html",
-    "main.4beb9e36.css.map": "/react-knitting/static/css/main.4beb9e36.css.map",
+    "main.8cd37051.css.map": "/react-knitting/static/css/main.8cd37051.css.map",
     "main.72fcfcb8.js.map": "/react-knitting/static/js/main.72fcfcb8.js.map",
     "453.d93b07c7.chunk.js.map": "/react-knitting/static/js/453.d93b07c7.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4beb9e36.css",
+    "static/css/main.8cd37051.css",
     "static/js/main.72fcfcb8.js"
   ]
 }
